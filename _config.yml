@@ -1,0 +1,48 @@
+# Permalinks
+permalink:        pretty
+
+# Setup
+url:              https://mrtekpet22.github.io/LifeInANutshell/
+enforce_ssl:      mrtekpet22.github.io/LifeInANutshell/
+
+# Set to '' in case of hosting on `http://<your-github-name>.github.io`
+baseurl:          ''
+
+title:            Life in a Nutshell
+
+# Markdown enabled, however don't use more than one paragraph (enforced by `>`)
+description:      >
+  *By [@MrTekPet22](https://github.com/MrTekPet22)*
+
+# The tags listed as entries in the sidebar
+sidebar_tags:     
+
+# Fallback image and color if not overwritten for tag or post
+image:            /public/img/defaultbg.jpg
+color:            '#AB3333'
+
+author:
+  name:           'MrTekPet22'
+
+  # Setting social media usernames will add icons at the bottom of the sidebar
+  github:         MrTekPet22
+  rss:            atom.xml
+
+  # Setting a disqus username will enable the comment section
+  disqus:         
+
+  # This photo will be used in the about section
+  photo:          /public/img/me_5.png
+
+  # Markdown enabled, can use multiple paragraphs (enabled by `|`)
+  about:          |
+    Hi, I'm MrTekPet22 - Welcome to my blog! I am a frontend developer who loves building web apps and experimenting with game engines, mobile apps, and fun coding languages.
+     
+    Check out my stuff at [GitHub](https://github.com/MrTekPet22).
+     
+    Blog theme is [Hydejack](http://qwtel.com/hydejack/) built with [Jekyll](https://jekyllrb.com/) and [hosted at GitHub](https://github.com/MrTekPet22/LifeInANutshell).
+
+kramdown:
+  math_engine: mathjax
+  math_engine_opts:
+    preview: true
