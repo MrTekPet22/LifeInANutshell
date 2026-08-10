@@ -71,18 +71,16 @@
   (function() {
     const sidebar = document.getElementById('_sidebar');
     if (sidebar) {
-      const allImages = [
-        {% if tag.image_folder %}
-          {% assign img_files = site.static_files | where_exp: "item", "item.path contains tag.image_folder" %}
-          {% for file in img_files %}
-            "{{ file.path | relative_url }}"{% unless forloop.last %},{% endunless %}
-          {% endfor %}
-        {% endif %}
-      ];
+      let folderPath = "{{ tag.image_folder | relative_url }}";
+      const totalImages = parseInt("{{ tag.image_count }}") || 0;
 
-      if (allImages.length > 0) {
-        const randomIndex = Math.floor(Math.random() * allImages.length);
-        sidebar.style.backgroundImage = `url('${allImages[randomIndex]}')`;
+      if (folderPath.includes('/public/img/')) {
+        folderPath = folderPath.replace('/public/img/', '/public/in/');
+      }
+
+      if (totalImages > 0 && folderPath !== "") {
+        const randomIndex = Math.floor(Math.random() * totalImages) + 1;
+        sidebar.style.backgroundImage = `url('${folderPath}${randomIndex}.jpg')`;
       }
     }
   })();
