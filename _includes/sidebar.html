@@ -17,7 +17,7 @@
   {% assign image = site.image %}
 {% endunless %}
 
-<div   id="_backdrop" class="backdrop"></div>
+<div id="_backdrop" class="backdrop"></div>
 <aside id="_sidebar" class="sidebar" {% if image %}style="background-image:url('{{ image }}')"{% endif %}>
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -33,11 +33,6 @@
             <a class="sidebar-nav-item {% if page.tag == tag_key %}active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
           </li>
         {% endfor %}
-
-        {% comment %}
-          The code below dynamically generates a sidebar nav of pages with
-          `layout: page` in the front-matter. See readme for usage.
-        {% endcomment %}
 
         {% assign pages_list = site.pages %}
         {% for node in pages_list %}
@@ -76,14 +71,16 @@
   (function() {
     const sidebar = document.getElementById('_sidebar');
     if (sidebar) {
-      // 1. Pass the Jekyll variables dynamically into JS variables
-      const folderPath = "{{ tag.image_folder | relative_url }}";
-      const totalImages = parseInt("{{ tag.image_count }}") || 0;
+      const allImages = [
+        {% assign img_files = site.static_files | where_exp: "item", "item.path contains '/public/in/life/'" %}
+        {% for file in img_files %}
+          "{{ file.path | relative_url }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ];
 
-      // 2. Only run the randomiser if the current tag has an image folder set up
-      if (totalImages > 0 && folderPath !== "") {
-        const randomIndex = Math.floor(Math.random() * totalImages) + 1;
-        sidebar.style.backgroundImage = `url('${folderPath}${randomIndex}.jpg')`;
+      if (allImages.length > 0) {
+        const randomIndex = Math.floor(Math.random() * allImages.length);
+        sidebar.style.backgroundImage = `url('${allImages[randomIndex]}')`;
       }
     }
   })();
