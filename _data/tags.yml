@@ -15,16 +15,14 @@
 
 life:
    name: Life
-   image_folder: /public/img/life/
-   image_count: 5
+   image: /public/img/life/4.jpg
    color: '#913a00'
    description: >
      A post related to my life.     
 
 dev:
    name: Dev
-   image_folder: /public/img/dev/
-   image_count: 1
+   image: /public/img/dev/1.jpg
    color: '#01065e'
    description: >
      A developer related post.
