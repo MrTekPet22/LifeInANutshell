@@ -2,8 +2,8 @@
 permalink:        pretty
 
 # Setup
-url:              https://mrtekpet22.github.io/LifeInANutshell/
-enforce_ssl:      mrtekpet22.github.io/LifeInANutshell/
+url:              https://lifeinanutshell.vercel.app/
+enforce_ssl:      lifeinanutshell.vercel.app/
 
 # Set to '' in case of hosting on `http://<your-github-name>.github.io`
 baseurl:          ''
