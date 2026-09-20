@@ -15,7 +15,7 @@
 
 life:
    name: Life
-   image: /public/img/life/5.jpg
+   image: /public/img/life/1.jpg
    color: '#913a00'
    description: >
      A post related to my life.     
